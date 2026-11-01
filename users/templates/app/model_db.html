@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+          a {
+            font-size: 15px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #2d2d2d;
+            margin-top: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: linear-gradient(45deg, #ffffff, #e3f2fd); /* Light blue gradient for weather theme */
+            border: 1px solid #1f1f1f;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced box shadow for 3D effect */
+            perspective: 1000px; /* Perspective for 3D effect */
+        }
+        
+        table th,
+        table td {
+            border: 1px solid #1f1f1f;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            background: linear-gradient(145deg, #ffffff, #f2f2f2);
+            box-shadow: 0 2px 0 rgba(255, 255, 255, 0.8) inset, 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for deeper 3D effect */
+            transform: translateZ(0);
+            transition: transform 0.3s ease;
+        }
+        
+        table th {
+            background-color: #0288d1; /* Blue header for weather theme */
+            color: #ffffff;
+            background: linear-gradient(145deg, #0288d1, #81d4fa);
+            box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: translateZ(0);
+            transition: transform 0.3s ease;
+        }
+        
+        table th:before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(145deg, #4fc3f7, #0288d1);
+            border-radius: 8px;
+            z-index: -1;
+            transform: translateZ(-1px); /* Slightly push the shadow back */
+        }
+        
+        table tr:nth-child(even) {
+            background-color: #e1f5fe; /* Light blue for alternating rows */
+        }
+        
+        table tr:hover {
+            background-color: #b3e5fc; /* Slightly darker blue for hover effect */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            transform: translateY(-4px) translateZ(10px); /* Lift the row on hover */
+        }
+        
+        table th:hover,
+        table td:hover {
+            transform: translateZ(10px); /* Lift the cell on hover for 3D effect */
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 style="color: white;">Weather Prediction Database</h3>
+        
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <tr>
+                        <th>City</th>
+                        <th>Temperature Celsius</th>
+                        <th>Wind Speed ms</th> 
+                        <th>Latitude</th> 
+                        <th>Longitude</th> 
+                        <th>Country</th> 
+                        <th>Output</th>
+                        
+                    </tr>
+                    {% for record in data %}
+                    <tr>
+                        <td>{{ record.City }}</td>
+                        <td>{{ record.Temperature_Celsius }}</td>
+                        <td>{{ record.Wind_Speed_ms }}</td>
+                        <td>{{ record.Latitude }}</td>
+                        <td>{{ record.Longitude }}</td>
+                        <td>{{ record.Country }}</td>
+                        <td>{{ record.Description }}</td>
+                        
+                    </tr>
+                {% endfor %}
+             </table>
+        </div>
+    </div>
+
+        
+    
+</body>
+</html>
+

@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>model</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  <title>Document</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+
+  body {
+    background-image: url(https://images.pexels.com/photos/1422501/pexels-photo-1422501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-position: center;
+	  background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  a {
+    font-size: 15px;
+  }
+  
+  .container {
+    max-width: 1230px;
+    width: 100%;
+  }
+  
+  h1 {
+    font-weight: 700;
+    font-size: 45px;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adding a subtle text shadow */
+  }
+  
+  .header {
+    margin-bottom: 80px;
+    /* Adding a box-shadow for a 3D effect */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+
+.form-wrap {
+  background-image: url(https://images.pexels.com/photos/2612208/pexels-photo-2612208.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load);
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 850px;
+  padding: 50px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.form-wrap:before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background: linear-gradient(145deg, #002f94, #002f94);
+  border-radius: 15px;
+  z-index: -1;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-control {
+  height: 50px;
+  background: #ecf0f4;
+  border: 1px solid #d1d9e6;
+  border-radius: 8px;
+  padding: 0 15px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #002f94;
+  box-shadow: 0px 0px 10px rgba(0, 47, 148, 0.3);
+}
+
+textarea.form-control {
+  height: 160px;
+  padding-top: 15px;
+  resize: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+  perspective: 1000px; /* Setting perspective for 3D effect */
+
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #002f94;
+  border: none;
+}
+
+.btn-primary:hover {
+  color: #002f94;
+  background-color: #ffffff;
+  border: 1px solid #002f94;
+  box-shadow: 0px 0px 10px rgba(0, 47, 148, 0.3);
+}
+
+</style>
+<body>
+  
+  <div class="container">
+    <header class="header">
+      <h1 id="title" class="text-center" style="color: white;">Inputs Model Form</h1>
+      <p id="description" class="text-center">
+        
+      </p>
+    </header>
+    <div class="form-wrap">	
+      <form method="post" id="survey-form" action="{% url 'model' %}">
+        {% csrf_token %}
+
+        <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>City</label>
+            <select id="dropdown" type="text" name="City" class="form-control" required>
+              <option disabled selected value>Select City</option>
+              <option value="61">Paris</option>
+              <option value="18">Dubai</option>
+              <option value="44">Madrid</option>
+              <option value="88">Tokyo</option>
+              <option value="1">Amsterdam</option>
+              <option value="7">Berlin</option>
+              <option value="70">Rome</option>
+              <option value="56">New York City</option>
+              <option value="5">Barcelona</option>
+              <option value="41">London</option>
+              <option value="79">Singapore</option>
+              <option value="54">Munich</option>
+              <option value="50">Milan</option>
+              <option value="74">Seoul</option>
+              <option value="19">Dublin</option>
+              <option value="59">Osaka</option>
+              <option value="29">Hong Kong</option>
+              <option value="94">Vienna</option>
+              <option value="42">Los Angeles</option>
+              <option value="40">Lisbon</option>
+              <option value="65">Prague</option>
+              <option value="81">Sydney</option>
+              <option value="32">Istanbul</option>
+              <option value="47">Melbourne</option>
+              <option value="58">Orlando</option>
+              <option value="22">Frankfurt</option>
+              <option value="37">Kyoto</option>
+              <option value="83">Taipei</option>
+              <option value="21">Florence</option>
+              <option value="89">Toronto</option>
+              <option value="3">Athens</option>
+              <option value="99">Zurich</option>
+              <option value="4">Bangkok</option>
+              <option value="38">Las Vegas</option>
+              <option value="49">Miami</option>
+              <option value="36">Kuala Lumpur</option>
+              <option value="92">Venice</option>
+              <option value="0">Abu Dhabi</option>
+              <option value="80">Stockholm</option>
+              <option value="9">Brussels</option>
+              <option value="86">Tel Aviv</option>
+              <option value="71">San Francisco</option>
+              <option value="76">Shanghai</option>
+              <option value="96">Warsaw</option>
+              <option value="24">Guangzhou</option>
+              <option value="15">Copenhagen</option>
+              <option value="57">Nice</option>
+              <option value="97">Washington</option>
+              <option value="10">Budapest</option>
+              <option value="78">Shenzhen</option>
+              <option value="91">Vancouver</option>
+              <option value="60">Palma de Mallorca</option>
+              <option value="75">Seville</option>
+              <option value="82">São Paulo</option>
+              <option value="90">Valencia</option>
+              <option value="48">Mexico City</option>
+              <option value="2">Antalya</option>
+              <option value="73">Sapporo</option>
+              <option value="6">Beijing</option>
+              <option value="12">Busan</option>
+              <option value="23">Fukuoka</option>
+              <option value="20">Edinburgh</option>
+              <option value="64">Porto</option>
+              <option value="33">Jerusalem</option>
+              <option value="35">Kraków</option>
+              <option value="68">Rio de Janeiro</option>
+              <option value="30">Honolulu</option>
+              <option value="51">Montreal</option>
+              <option value="43">Macau</option>
+              <option value="14">Cancún</option>
+              <option value="31">Islamabad</option>
+              <option value="17">Doha</option>
+              <option value="77">Sharjah</option>
+              <option value="67">Rhodes</option>
+              <option value="93">Verona</option>
+              <option value="8">Bologna</option>
+              <option value="87">Thessaloniki</option>
+              <option value="11">Buenos Aires</option>
+              <option value="39">Lima</option>
+              <option value="62">Phuket</option>
+              <option value="16">Delhi</option>
+              <option value="27">Heraklion</option>
+              <option value="84">Tallinn</option>
+              <option value="46">Mecca</option>
+              <option value="28">Ho Chi Minh City</option>
+              <option value="63">Playa Del Carmen</option>
+              <option value="34">Johor Bahru</option>
+              <option value="72">Santiago</option>
+              <option value="85">Tbilisi</option>
+              <option value="69">Riyadh</option>
+              <option value="45">Marrakech</option>
+              <option value="95">Vilnius</option>
+              <option value="52">Mugla</option>
+              <option value="98">Zhuhai</option>
+              <option value="53">Mumbai</option>
+              <option value="66">Punta Cana</option>
+              <option value="25">Guilin</option>
+              <option value="26">Hanoi</option>
+              <option value="13">Cairo</option>
+              <option value="55">Muscat</option>
+
+              
+            </select>
+          </div>
+        </div>
+      
+        
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="name-label" for="name">Temperature Celsius</label>
+              <input type="number" step="0.000001" name="Temperature_Celsius"  id="name" placeholder="Enter your Temperature Celsius" class="form-control" required>
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="row">
+          
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="number-label" for="number">Wind Speed ms <small></small></label>
+              <input type="number" step="0.000001" name="Wind_Speed_ms" id="number"  class="form-control" placeholder="Enter your Wind Speed " >
+            </div>
+          </div>
+          
+        
+          <div class="col-md-6">
+            <div class="form-group">
+              <label id="number-label" for="number">Latitude <small></small></label>
+              <input type="number" step="0.000001" name="Latitude" id="number" class="form-control" placeholder="Enter your Latitude" >
+            </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label id="number-label" for="number">Longitude<small></small></label>
+                <input type="number" step="0.000001" name="Longitude" id="number" class="form-control" placeholder="Enter your Longitude" >
+              </div>
+            </div>
+           
+              
+          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Country</label>
+              <select id="dropdown" type="text" name="Country" class="form-control" required>
+                <option disabled selected value>Select Country</option>
+                <option value="13">France</option>
+                <option value="43">United Arab Emirates</option>
+                <option value="37">Spain</option>
+                <option value="22">Japan</option>
+                <option value="27">Netherlands</option>
+                <option value="15">Germany</option>
+                <option value="21">Italy</option>
+                <option value="45">United States</option>
+                <option value="44">United Kingdom</option>
+                <option value="35">Singapore</option>
+                <option value="36">South Korea</option>
+                <option value="19">Ireland</option>
+                <option value="7">China</option>
+                <option value="2">Austria</option>
+                <option value="32">Portugal</option>
+                <option value="8">Czech Republic</option>
+                <option value="1">Australia</option>
+                <option value="42">Turkey</option>
+                <option value="40">Taiwan</option>
+                <option value="5">Canada</option>
+                <option value="16">Greece</option>
+                <option value="39">Switzerland</option>
+                <option value="41">Thailand</option>
+                <option value="24">Malaysia</option>
+                <option value="38">Sweden</option>
+                <option value="3">Belgium</option>
+                <option value="20">Israel</option>
+                <option value="31">Poland</option>
+                <option value="9">Denmark</option>
+                <option value="17">Hungary</option>
+                <option value="4">Brazil</option>
+                <option value="25">Mexico</option>
+                <option value="29">Pakistan</option>
+                <option value="33">Qatar</option>
+                <option value="0">Argentina</option>
+                <option value="30">Peru</option>
+                <option value="18">India</option>
+                <option value="12">Estonia</option>
+                <option value="34">Saudi Arabia</option>
+                <option value="46">Vietnam</option>
+                <option value="6">Chile</option>
+                <option value="14">Georgia</option>
+                <option value="26">Morocco</option>
+                <option value="23">Lithuania</option>
+                <option value="10">Dominican Republic</option>
+                <option value="11">Egypt</option>
+                <option value="28">Oman</option>
+
+                
+              </select>
+            </div>
+          </div>
+        </div>
+        
+       
+          
+          
+        
+        
+        
+        
+        <div class="row">
+          <div class="col-md-4">
+            <button type="submit" id="submit" class="btn btn-primary btn-block">Submit</button><br>
+            
+          </div>
+        </div><br>
+        <div class="row">
+          <div class="col-md-4">
+            
+            <button  id="submit" class="btn btn-primary btn-block"><a href="/">Home</a></button>
+          </div>
+        </div>
+  
+      </form>
+    </div>	
+  </div>
+</body>
+
+</html>
+
+
+
